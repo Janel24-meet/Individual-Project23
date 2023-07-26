@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+	<title></title>
+</head>
+<body style="background: linear-gradient(#01465A,black); background-size: cover; color: white; min-height: 100vh;" >
+ <div class="topnav" id="myTopnav">
+  <a href="/profile" class="active">Your profile</a>
+  <div class="dropdown">
+    <button class="dropbtn">Post 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/all_tweets">Public</a>
+      <a href="/add_tweet">Add a post</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">settings 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/change">profile settings</a>
+      <a href="/signout">signout</a>
+    </div>
+  </div>
+  <div class="topnav" id="myTopnav">
+  	  <div class="search-container">
+    <form action="/profile2" method="post">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  </div>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+	{% for tweet in twee %}
+		<img src="{{su[twee[tweet]['UID']]['link']}}" style="border-radius: 50%; height: 100px; float: left; margin-top: 20px;">
+		<h1 style="margin-left: 40px; margin-top: 50px;">{{su[twee[tweet]['UID']]['username']}}</h1>
+		<br>
+		<br>
+		<br>
+		<div><p style="margin-left: 270px;"> title: {{twee[tweet]['title']}}</p> <br>
+			<center><img src="{{ twee[tweet]['picture'] }} " style="width: 300px; height: 350px;"></center>
+			<p style="margin-left: 270px;"> text: {{twee[tweet]['text']}} </p>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+	{% endfor %}
+</body>
+</html>

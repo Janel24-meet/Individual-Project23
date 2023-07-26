@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+	<title>your profile</title>
+</head>
+<body style="background: linear-gradient(#01465A,black); background-size: cover; color: white; min-height: 100vh;">
+	<div class="topnav" id="myTopnav">
+  <a href="/profile" class="active">Your profile</a>
+  <div class="dropdown">
+    <button class="dropbtn">Post 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/all_tweets">Public</a>
+      <a href="/add_tweet">Add a post</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">settings 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/change">profile settings</a>
+      <a href="/signout">signout</a>
+    </div>
+  </div> 
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+	<h1>{{user}}</h1>
+	<h3>{{fullname}}</h3>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center><img src="{{piclink}}" style="border-radius: 50%; height: 300px;"></center>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center><h2>{{bio}}</h2></center>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>Your Posts</h1>
+	{%for i in twet%}
+		{%if  twet[i]["UID"]==uid %}
+			<p style="margin-left: 270px;"> title: {{twet[i]['title']}} </p> <br>
+			<center><img src="{{ twet[i]['picture'] }} " style="width: 300px; height: 350px;"></center>
+			<p style="margin-left: 270px;">text: {{twet[i]['text']}} </p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		{%endif%}
+	{%endfor%}
+</body>
+</html>

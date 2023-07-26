@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <title></title>
+</head>
+<body style="background: linear-gradient(#01465A,black); background-size: cover; color: white; min-height: 100vh;" >
+ <div class="topnav" id="myTopnav">
+  <a href="/profile" class="active">Your profile</a>
+  <div class="dropdown">
+    <button class="dropbtn">Post 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/all_tweets">Public</a>
+      <a href="/add_tweet">Add a post</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">settings 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/change">profile settings</a>
+      <a href="/signout">signout</a>
+    </div>
+  </div> 
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+    <form method="post" action="/change" style="max-width: 400px; margin: 0 auto;">
+    <h4 style="text-align: center; font-size: 24px;">Profile settings</h4>
+
+    <div style="margin-bottom: 10px;">
+        <label style="display: block; font-weight: bold;">Name*</label>
+        <div>
+            <input type="text" name="fullname" placeholder="{{fullname}}" style="width: 100%; padding: 5px;">
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label style="display: block; font-weight: bold;">Username*</label>
+        <div class="input-group">
+            <input type="text" name="username" placeholder="{{user}}" style="width: 100%; padding: 5px;">
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label style="display: block; font-weight: bold;">Bio*</label>
+        <div class="input-group">
+            <input type="text" name="bio" placeholder="{{bio}}" style="width: 100%; padding: 5px;">
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label style="display: block; font-weight: bold;">Put an image address*</label>
+        <div class="input-group">
+            <input type="text" name="pic" placeholder="Address" style="width: 100%; padding: 5px;">
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <input type="submit" value="Save" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+    </div>
+</form>
+<br>
+
+</body>
+</html>
